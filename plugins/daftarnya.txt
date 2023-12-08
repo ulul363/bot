@@ -1,0 +1,138 @@
+https://api.erdwpe.com/api/photooxy/harry-potter?text=erdwpe
+https://api.erdwpe.com/api/photooxy/metallic?text=erdwpe
+https://api.erdwpe.com/api/photooxy/butterfly?text=erdwpe
+https://api.erdwpe.com/api/photooxy/picture-of-love?text=erdwpe
+https://api.erdwpe.com/api/photooxy/pubg?text=Pubg&text2=erdwpe
+https://api.erdwpe.com/api/photooxy/night-sky?text=erdwpe
+https://api.erdwpe.com/api/photooxy/under-grass?text=erdwpe
+https://api.erdwpe.com/api/maker/darkness?url=https://i.pinimg.com/564x/b8/a8/e2/b8a8e281f1a3113630671742b5677c15.jpg&no=50
+https://api.erdwpe.com/api/maker/wanted?url=link
+https://api.erdwpe.com/api/game/tembakbendera
+            break
+case "1gb": {
+    if (!isPremium && !isOwner) return reply(mess.only.premium)
+
+let t = text.split(',');
+if (t.length < 2) return m.reply(`*Format salah!*
+Penggunaan:
+${prefix + command} user,nomer`)
+let username = t[0];
+let u = m.quoted ? m.quoted.sender : t[1] ? t[1].replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.mentionedJid[0];
+let name = username + "Reguler"
+let egg = global.eggsnya
+let loc = global.location
+let memo = "1024"
+let cpu = "10"
+let disk = "0"
+let email = username + "1398@gmail.com"
+akunlo = "https://telegra.ph/file/49ea31e74d496b1363d69.jpg" 
+if (!u) return
+let d = (await Biiofc.onWhatsApp(u.split`@`[0]))[0] || {}
+let password = username + "001"
+let f = await fetch(domain + "/api/application/users", {
+"method": "POST",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + apikey
+},
+"body": JSON.stringify({
+"email": email,
+"username": username,
+"first_name": username,
+"last_name": username,
+"language": "en",
+"password": password
+})
+})
+let data = await f.json();
+if (data.errors) return m.reply(JSON.stringify(data.errors[0], null, 2));
+let user = data.attributes
+let f2 = await fetch(domain + "/api/application/nests/5/eggs/" + egg, {
+"method": "GET",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + apikey
+}
+})
+m.reply(`DONE BY RafatharOffcial⚡
+
+ *DONE CRATE USER + SERVER ID :* ${user.id}`)
+ctf = `Hai @${u.split`@`[0]}
+
+ *👤USERNAME* : ${user.username}
+ *🔐PASSWORD* : ${password}
+ *🌐LOGIN* : ${domain}
+ *😎PEMILIK SERVER* : *${namaCreator}*
+ 
+*TUTOR BUAT PANEL DI ADMIN PANEL :*
+https://youtu.be/ukYdr_FfVI4
+
+*TUTOR RUN BOT DI PANEL :*
+https://youtu.be/-XKfz5Xzqt4
+
+*YOUTUBE OWNER :*
+https://youtube.com/@RafatharOffcial
+
+*GRUP OWNER :*
+https://chat.whatsapp.com/EvwRjBk5J3c5aETCiasuLF
+
+NOTE :
+OWNER HANYA MENGIRIM 1X DATA 
+AKUN ANDA MOHON DI SIMPAN BAIK BAIK
+KALAU DATA AKUN ANDA HILANG OWNER
+TIDAK DAPAT MENGIRIM AKUN ANDA LAGI
+`
+Biiofc.sendMessage(u,{image: {url: akunlo}, caption: ctf }, { quoted: Biiofc.chat })
+let data2 = await f2.json();
+let startup_cmd = data2.attributes.startup
+
+let f3 = await fetch(domain + "/api/application/servers", {
+"method": "POST",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + apikey,
+},
+"body": JSON.stringify({
+"name": name,
+"description": " ",
+"user": user.id,
+"egg": parseInt(egg),
+"docker_image": "ghcr.io/parkervcp/yolks:nodejs_18",
+"startup": startup_cmd,
+"environment": {
+"INST": "npm",
+"USER_UPLOAD": "0",
+"AUTO_UPDATE": "0",
+"CMD_RUN": "npm start"
+},
+"limits": {
+"memory": memo,
+"swap": 0,
+"disk": disk,
+"io": 500,
+"cpu": cpu
+},
+"feature_limits": {
+"databases": 5,
+"backups": 5,
+"allocations": 1
+},
+deploy: {
+locations: [parseInt(loc)],
+dedicated_ip: false,
+port_range: [],
+},
+})
+})
+let res = await f3.json()
+if (res.errors) return m.reply(JSON.stringify(res.errors[0], null, 2))
+let server = res.attributes
+let p = await m.reply(`
+𝐃𝐎𝐍𝐄 𝐒𝐈𝐋𝐀𝐇𝐊𝐀𝐍 𝐂𝐄𝐊 𝐃𝐀𝐓𝐀 𝐀𝐊𝐔𝐍 𝐏𝐀𝐍𝐄𝐋 𝐀𝐍𝐃𝐀 𝐒𝐔𝐃𝐀𝐇 𝐓𝐄𝐑𝐊𝐈𝐑𝐈𝐌 𝐊𝐄 𝐍𝐎𝐌𝐎𝐑 𝐓𝐄𝐑𝐒𝐄𝐁𝐔𝐓 ☑️
+© Cs RafatharOffcial
+`)
+
+}
